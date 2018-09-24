@@ -8,7 +8,7 @@ import image_utils
 from Bunch import Bunch
 from image_utils import get_file_number
 
-''' e.g the file should be in this format "000015.png,3,640.0,131.0,712.0,211.0,15,640.0,212.0,710.0,253.0,17,640.0,254.0,709.0,293.0,17"
+''' e.g the file should be in this format "0000015.png,3,640.0,131.0,712.0,211.0,15,640.0,212.0,710.0,253.0,17,640.0,254.0,709.0,293.0,17"
 '''
 
 def convert_csv_to_yolo_format(in_dir, out_dir, gt_csv_file_path):
