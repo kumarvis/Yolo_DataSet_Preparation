@@ -1,5 +1,10 @@
 import cv2
 import numpy as np
+
+""""""
+ #References
+'https://blog.paperspace.com/data-augmentation-for-object-detection-rotation-and-shearing/'
+""""""
 class Geometrical_Transformation:
     def __init__(self, img):
         self.img = img
