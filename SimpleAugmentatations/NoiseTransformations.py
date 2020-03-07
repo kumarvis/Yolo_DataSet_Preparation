@@ -4,7 +4,7 @@ class Noise_Transformations:
     def __init__(self, img):
         self.img = img
 
-    def noisy_img(self, noise_type):
+    def noisy_img(self, noise_type, alpha=0.5):
         if noise_type == "gauss":
             row, col, ch = self.img.shape
             mean = 0
@@ -12,7 +12,9 @@ class Noise_Transformations:
             sigma = var**0.5
             gauss = np.random.normal(mean, sigma, (row, col, ch))
             gauss = gauss.reshape(row, col, ch)
-            noisy = self.img + gauss
+            gauss = (gauss - np.min(gauss))/np.ptp(gauss)
+            noisy = alpha * (self.img / 255.0) + (1 - alpha) * gauss
+            noisy = (noisy * 255.0).astype(dtype=np.uint8)
             return noisy
         elif noise_type == "sp":
             s_vs_p = 0.5

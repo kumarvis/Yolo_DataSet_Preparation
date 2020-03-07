@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from SimpleAugmentatations.GeometricalTransformations import Geometrical_Transformation
+from SimpleAugmentatations.NoiseTransformations import Noise_Transformations
 
 img_path = 'img_folder/iron_man.png'
 img_path1 = 'img_folder/iron_man_roi.png'
@@ -36,12 +37,20 @@ def test_rotate_roi():
     cv2.imwrite(img_aug_path, rot_img)
 
 
+def test_noise():
+    img = cv2.imread(img_path)
+    obj_noise = Noise_Transformations(img)
+    noise_img = obj_noise.noisy_img('sp')
+    cv2.imwrite(img_aug_path, noise_img)
+
+
 
     print('ss')
 
 
 #test_flip()
 #test_rotate()
-test_rotate_roi()
+#test_rotate_roi()
+test_noise()
 
 
